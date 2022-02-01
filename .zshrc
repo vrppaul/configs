@@ -96,17 +96,12 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
-alias ssh-test='ssh root@zbozi2-maintenance.test.dszn.cz'
-alias work-folder='nautilus ~/work/'
 
 parse_git_branch() {
      git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
 }
 export PS1="\u@\h \[\e[32m\]\w \[\e[91m\]\$(parse_git_branch)\[\e[00m\]$ "
 
-alias kube-login='~/work/kube-login-linux-1.2.10'
-alias deploy-adminweb='scp szn-zbozi-adminweb-* pavel.paranin@repo.dev.dszn.cz:stretch-testing-add_new_repo'
-source "$HOME/.cargo/env"
 alias dcb='docker-compose build'
 alias dcu='docker-compose up'
 alias dcbu='dcb && dcu'
@@ -115,7 +110,6 @@ alias dcbu='dcb && dcu'
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-. "$HOME/.cargo/env"
 
 autoload -U colors && colors
 PS1="%B%F{034}%n@%m%f%b:%B%F{019}%~ %#%f%b "
@@ -164,4 +158,3 @@ plugins=(
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=60'
 
 source $ZSH/oh-my-zsh.sh
-
